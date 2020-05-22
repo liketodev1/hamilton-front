@@ -1,0 +1,32 @@
+.DashboardMenu{
+    padding: 30px 35px;
+    &-Cont{
+        &-CardSOfTitle{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+        }
+        &-CardSOfNameTestS{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+        }
+    }
+}
+
+@media only screen and (max-width: 1670px){
+    .DashboardMenu-Cont-CardSOfTitle{
+        justify-content: center;
+    }
+    .DashboardMenu-Cont-CardSOfNameTestS{
+        justify-content: center;
+    }
+}
+
+    @media only screen and (max-width: 515px){
+        .DashboardMenu{
+        padding: 0;
+    }
+}

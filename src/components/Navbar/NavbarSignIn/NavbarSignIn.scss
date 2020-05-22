@@ -1,0 +1,65 @@
+.NavbarSignIn{
+
+    &-Wrapper{
+      &-Flex{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+          &-Navlink2{
+            display: flex;
+            &-SignIn{
+              width: 100px;
+              height: 30px;
+              border: 1px solid #4786ff;
+              background-color: #091f40;
+              border-radius: 5px;
+              outline: none;
+              cursor: pointer;
+              font-size: 14px;
+              font-family: 'Times New Roman', Regular;
+              font-weight: 600;
+              color: #fff;
+              margin: 0 10px 0 60px;
+
+            }
+            &-SignUp{
+              width: 100px;
+              height: 30px;
+              border: 1px solid #4786ff;
+              background-color: #4786ff;
+              color: #fff;
+              border-radius: 5px;
+              outline: none;
+              cursor: pointer;
+              font-size: 14px;
+              font-family: 'Times New Roman', Regular;
+              font-weight: 600;
+         
+            }
+            }
+          }
+        }
+        ul {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          a{
+            text-decoration: none;
+            li {
+              display: flex;
+              align-items: center ;
+          }
+            
+      
+          }
+      }
+    }
+
+  
+  @media only screen and (max-width: 515px){
+ 
+    .NavbarSignIn-Wrapper-Flex-Navlink2-SignIn{
+      margin: 0;
+  }
+  }

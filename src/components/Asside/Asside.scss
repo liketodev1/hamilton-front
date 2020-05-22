@@ -1,0 +1,88 @@
+.Asside{
+  background-color: #fff;
+  padding: 30px 15px;
+  &-Wrapper{
+    &-Flex{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+        &-Navlink1{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+
+        }
+        &-Navlink2{
+          display: flex;
+          flex-wrap: wrap;
+          &-SignIn{
+            width: 100px;
+            height: 30px;
+            border: 2px solid #091f40;
+            background-color: #fff;
+            border-radius: 10px;
+            outline: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-family: 'Times New Roman', Regular;
+            font-weight: 600;
+          }
+          &-SignUp{
+            width: 100px;
+            height: 30px;
+            border: 2px solid #091f40;
+            background-color: #091f40;
+            color: #fff;
+            border-radius: 10px;
+            outline: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-family: 'Times New Roman', Regular;
+            font-weight: 600;
+       
+          }
+          }
+        }
+      }
+      ul {
+        display: flex;
+        // justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        // justify-content: center;
+        a{
+          text-decoration: none;
+          li {
+            display: flex;
+            align-items: center ;
+            margin: 0 13px;
+      
+            p{
+              margin: 0 10px;
+              color: #1e1f26;
+              font-size: 14px;
+              font-family: 'Times New Roman', Regular;
+              font-weight: 600;
+              &.isActive {
+                color: #4786ff;
+    
+              }
+    
+            }
+        }
+          
+    
+        }
+    }
+  }
+
+
+
+
+@media only screen and (max-width: 1600px){
+  a{
+    margin: 8px;
+  }
+}

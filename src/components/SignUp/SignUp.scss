@@ -1,0 +1,110 @@
+.SignIn{
+    font-family: 'Times New Roman', Regular;
+    &-Cont{
+        display: flex;
+        justify-content: center;
+        margin: 30px 0 0 0 ;
+
+        &-TitleAnadSignUp{
+            max-width: 350px;
+            min-height: 570px;
+            background-color: #091f40;
+            color: #ffffff;
+            border-radius: 10px;
+            padding: 250px 55px;
+            text-align: center;
+            &-Title{
+                font-size: 36px;
+                margin-bottom: 20px;
+
+            }
+            &-Description{
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
+            &-SignUp {
+                max-width: 200px;
+                min-height: 50px;
+                border: 2px solid #ffffff;
+                font-size: 18px;
+                width: 200px;
+                border-radius: 10px;
+                text-transform: uppercase;
+                color: #ffffff;
+                font-family: 'Times New Roman', Regular;
+                cursor: pointer;
+                background: #091f40;
+                width: 100%;
+            }
+        }
+        &-TitleAnadSignIn{
+            width: 485px;
+            min-height: 570px;
+            color: #1e1f26;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 115px 70px;
+            text-align: center;
+
+                    &-SignInButton{
+                    // display: flex;
+                    // justify-content: center;
+                }
+
+            &-Title {
+                font-size: 36px;
+                margin-bottom: 35px;
+                // text-align: center;
+
+            }
+            &-EmailAndPasswordAndForgot{
+                font-size: 18px;
+                color: #656565;
+                text-align: initial;
+
+            }
+            &-SignIn{
+                max-width: 200px;
+                min-height: 50px;
+                border: 2px solid #4786ff;
+                font-size: 18px;
+                width: 200px;
+                border-radius: 10px;
+                text-transform: uppercase;
+                color: #ffffff;
+                font-family: 'Times New Roman', Regular;
+                cursor: pointer;
+                background: #4786ff;
+                width: 100%;
+        
+
+            }
+            &-Forgot{
+                font-size: 18px;
+                color: #656565;
+                margin: 20px 0 30px 0;
+                // text-align: center;
+
+            }
+            &-EmmailAndPasswordInputS{
+                width: 100%;
+                min-height: 45px;
+                border-radius: 10px;
+                border: 2px solid #e7e7e7;
+                padding: 0 10px;
+                color: #656565;
+                margin: 15px 0;
+            }
+        }
+    }
+
+}
+@media only screen and (max-width: 700px){
+    .SignIn-Cont-TitleAnadSignUp{
+        max-width: 485px;
+    }
+    .SignIn-Cont{
+        flex-wrap: wrap; 
+    }
+
+}

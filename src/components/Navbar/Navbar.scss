@@ -1,0 +1,68 @@
+.Navbar{
+    background: #091f40;
+    &-Cont{
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        color: #fff;
+        font-size: 14px;
+        font-family: 'Times New Roman', Regular;
+        padding: 5px 40px;
+        &-LogoAndSearch{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            &-Search{
+                width: 100%;
+                &-Input{
+                    width: 100%;
+                    max-width: 500px;
+                    height: 40px;
+                    background: #7f8fac;
+                    display: flex;
+                    border-radius: 6px;
+                    align-items: center;
+                    padding: 0 10px;
+                    margin-left: 45px;
+                    border: 1px;
+                    color: #fff;
+                    font-size: 14px;
+                    // background-image: url("../../assets//search.png");
+                    // background-repeat: no-repeat;
+                    // background-position: left;
+                    font-family: 'Times New Roman', Regular;
+                    &::placeholder{
+                        color: #fff;
+                        font-size: 14px;
+                        font-family: 'Times New Roman', Regular;
+                    }
+                    &-SearchIcon{
+                        margin-right: 10px;
+                    }
+                }
+                
+         
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 515px){
+    .Navbar-Cont{
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .Navbar-Cont-LogoAndSearch-Search-Input{
+        margin: 0 15px;
+    }
+    
+    .Navbar-Cont-NotifAndUser-Notification{
+        margin: 0 15px;
+
+    }
+
+    .Navbar-Cont-NotifAndUser-Help{
+        margin-left: 30px;
+    }
+}

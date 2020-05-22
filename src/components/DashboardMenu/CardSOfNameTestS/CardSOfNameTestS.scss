@@ -1,0 +1,38 @@
+.CardSOfNameTestS{
+    margin: 20px 10px 30px 8px;
+    width: 100%;
+    max-width: 380px;
+    
+    &-Cont{
+        min-height: 310px;
+        background: #ffffff;
+        border-radius: 6px;
+        padding: 40px 30px;
+        text-align: center;
+        font-family: 'Times New Roman', Regular;
+        justify-content: center;
+        display: grid;
+        h2{
+            font-size: 18px;
+            color: #4786ff;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        &-H1AndP{
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            h1{
+                color: #1e1f26;
+                font-weight: 600;
+            }
+            p{
+                color: #63686f;
+            }
+        }
+
+
+
+
+    }
+}
