@@ -15,8 +15,7 @@ import Organization from "../Organization"
 import SignIn from '../SignIn';
 import SignUp from '../SignUp/SignUp';
 import QuestionSubject from "../QuestionSubject";
-import Dropdown from "../Dropdown"
-
+import SectionManagment from "../SectionManagment"
 const Dashboard = () => {
 
     return (
@@ -27,7 +26,6 @@ const Dashboard = () => {
                 
               
 
-                {/* <Dropdown/> */}
                 <Route path={`${process.env.PUBLIC_URL}/signin`} component={SignIn} />
                 <Route path={`${process.env.PUBLIC_URL}/signup`} component={SignUp} />
                 <Route path={`${process.env.PUBLIC_URL}/dashboard`} component={DashboardMenu} />
@@ -39,9 +37,10 @@ const Dashboard = () => {
                 <Route path={`${process.env.PUBLIC_URL}/knowledge`}  component={Knowledge} />
                 <Route path={`${process.env.PUBLIC_URL}/communication`}  component={Communication} />
                 <Route path={`${process.env.PUBLIC_URL}/organization`}  component={Organization} />
-                
 
-    
+
+                <Route path={`${process.env.PUBLIC_URL}/sectionManagment`}  component={SectionManagment} />
+
             </div>
             
         </section>

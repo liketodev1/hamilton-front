@@ -1,0 +1,170 @@
+.KnowledgeBase{
+  &-Cont{
+    background-color: #fff;
+    &-All{
+      padding: 40px 100px 40px 100px;
+      &-Table{
+        &-Main{
+          background-color:#eff0f2;
+          min-height: 50px;
+          display: flex;
+          padding: 12px 20px;
+          color: #091f40;
+          font-weight: 700;
+          border: 1px solid #dddddd;
+          &-Name{
+            max-width: 500px;
+            width: 100%;
+            // padding: 12px 20px;
+
+          }
+          &-View{
+            max-width: 900px;
+            width: 100%;
+            // padding: 12px 20px;
+
+          }
+          &-Edit{
+            max-width: 160px;
+            width: 100%;
+            // padding: 12px 20px;
+
+          }
+          &-Delete{
+            max-width: 150px;
+            width: 100%;
+            // padding: 12px 20px;
+
+          }
+        }
+        &-Flex{
+          display: flex;
+          background-color: #fff;
+          border: 1px solid #dddddd;
+          min-height: 50px;
+
+          &-View{
+            cursor: pointer;
+            border-left: 1px solid #dddddd;
+            border-right: 1px solid #dddddd;
+            max-width: 900px;
+            width: 100%;
+            padding: 12px 20px;
+            color:#4786ff
+
+          }
+          &-Name{
+            max-width: 500px;
+            width: 100%;
+            border-left: 1px solid #dddddd;
+            border-right: 1px solid #dddddd;
+            border-left: 1px solid #dddddd;
+            padding: 12px 20px;
+            color: #63686f;
+          }
+          &-Edit{
+            max-width: 160px;
+            width: 100%;
+            border-right: 1px solid #dddddd;
+            border-left: 1px solid #dddddd; 
+            padding: 12px 20px;
+            cursor: pointer;
+         
+          }
+          &-Delete{
+            max-width: 180px;
+            width: 100%;
+            border-right: 1px solid #dddddd;
+            border-left: 1px solid #dddddd;  
+            padding: 12px 20px;
+            cursor: pointer;
+
+          }
+        }
+      
+      }
+      &-MainFlex{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+        &-InsideFlex{
+          display: flex;
+          align-items: center;
+          button {
+            width: 120px;
+            height: 40px;
+            border-radius: 6px;
+            border: 1px solid #4786ff;
+            background-color: #4786ff;
+            color: #fff;
+            outline: none;
+            cursor: pointer;
+          }
+          input{
+            height: 40px;
+            width: 350px;
+            outline: none;
+            padding: 0 20px;
+            border-radius: 6px;
+            border: 1px solid #63686f;
+            margin-right: 10px;
+          }
+          p{
+            margin-left: 10px;
+            font-size: 14px;
+            color: #1e1f26;
+            font-weight: 700;        
+          }
+        }
+      }
+    table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    }
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    th{
+      width: 30%;
+
+    }
+
+    td:nth-child(even) {
+      color: #4786ff;
+      ;
+    }
+    td:nth-child(odd) {
+      color: #63686f;
+      ;
+    }
+  }
+    &-TitleForm{
+      border-color: #e9e9e9;
+      font-family: 'Times New Roman', Regular;
+      border-bottom: ridge;
+      padding: 40px 0 30px 100px;          
+      h2{
+        font-size: 36px;
+        font-weight: 600;
+        color: #091f40;  
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 845px){
+  .KnowledgeBase-Cont-All-MainFlex-InsideFlex{
+    width: 100%;
+  }
+  .KnowledgeBase-Cont-All-MainFlex-InsideFlex{
+    margin-bottom: 40px;
+  }
+  .KnowledgeBase-Cont-All-MainFlex{
+    margin: 0;
+  }
+}
