@@ -91,7 +91,91 @@
         &-InsideFlex{
           display: flex;
           align-items: center;
-          button {
+          p{
+            cursor: pointer;
+          }
+          &-AddExam{
+            position: absolute;
+            justify-content: center;
+            max-width: 940px;
+            width: 100%;
+            // min-height: 660px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #ffffff;
+            margin: 160px 270px;
+
+            &-CancelAndNext{
+              padding: 0 0 65px 0 ;
+              justify-content: center;
+              display: flex;
+
+              &-Cancel{
+                max-width: 130px;
+                min-height: 40px;
+                width: 100%;
+                background-color: #fff;
+                border: 1px solid #4786ff;
+                border-radius: 6px;
+                color: #4786ff;
+                font-family: 'Times New Roman', "Regular";
+                cursor: pointer;
+                outline: none;
+                margin-right: 20px;
+              }
+              &-Next{
+                max-width: 130px;
+                min-height: 40px;
+                width: 100%;
+                background-color: #4786ff;
+                border: 1px;
+                border-radius: 6px;
+                color: #fff;
+                font-family: 'Times New Roman', "Regular";
+                cursor: pointer;
+                outline: none;
+
+            }
+          }
+
+            &-MainDiv{
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 80px 160px;
+
+              h1{
+                color: #091f40;
+                font-size: 16px;
+                font-family: 'Times New Roman', "Regular";
+                margin-right: 20px;
+              }
+            }
+            &-MainTitle{
+              background-color: #254a81;
+              color: #fff;
+              min-height: 60px;
+
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: relative;
+              img{
+                position: absolute;
+                right: 20px;
+                cursor: pointer;
+              }
+          }
+          h2{
+              padding: 17px;
+              font-size: 18px;
+              font-family: 'Times New Roman', "Regular";
+              justify-content: center;
+              display: flex;
+
+          }
+        }
+          &-Search {
             width: 120px;
             height: 40px;
             border-radius: 6px;

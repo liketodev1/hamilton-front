@@ -42,15 +42,3 @@ const ExamScheduler = () => {
 export default ExamScheduler
 
 
-//     return (
-//         <section className="QuestionBank">
-//             <div className="QuestionBank-Cont">
-//                 <div className="QuestionBank-Cont-TitleForm">
-//                     <h2>Reading Test</h2>
-//                     <p>65 MINUTES, 52 QUESTIONS</p>
-//                 </div>
-//             </div>
-//         </section>
-//     )
-// }
-

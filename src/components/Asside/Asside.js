@@ -10,8 +10,6 @@ import knowledgeBaseLogo from "../../assets/knowledgeBaseLogo.png"
 import communicationLogo from "../../assets/communicationLogo.png"
 import organizationLogo from "../../assets/organizationLogo.png"
 
-import DropDown from "../Dropdown"
-
 import './Asside.scss'
  
 
@@ -35,22 +33,7 @@ const Asside = (props) => {
                                     <p className={pathname === `${process.env.PUBLIC_URL}/dashboard` ? 'isActive' : ""}>Dashboard</p>
                                 </li>
                             </NavLink>
-                             <NavLink to={{
-                                pathname: `${process.env.PUBLIC_URL}/questionBank` 
-                            }}
-                                > 
-                                <li>
-                                    <img src={questionBanklogo} alt='' /> 
-                                    <p className={pathname === `${process.env.PUBLIC_URL}/questionBank` ? 'isActive' : ""} > <DropDown/> </p>
-
-                                    <img src={arrowAsside}/>
-                                    {/* <select className={pathname==="/"? "isActive": ""}>
-                                        <option onClick={() => history.replace('/questionSubject')}>Question Subject</option>
-                                        <option >Question Bank</option>
-                                    </select> */}
-                                </li>
-                            </NavLink> 
-                            <NavLink to={{
+                            {/* <NavLink to={{
                                 pathname: `${process.env.PUBLIC_URL}/exam`  
                             }}
                                 >
@@ -59,14 +42,14 @@ const Asside = (props) => {
                                     <p className={pathname === `${process.env.PUBLIC_URL}/exam` ? 'isActive' : ""}>Exam Scheduler</p>
                                     <img src={arrowAsside}/>
                                 </li>
-                            </NavLink>
+                            </NavLink> */}
                             <NavLink to={{
-                                pathname: `${process.env.PUBLIC_URL}/problem`  
+                                pathname: `${process.env.PUBLIC_URL}/examManagment`  
                             }}
                                 >
                                 <li>
-                                    <img src={candidatesLogo} alt='' /> 
-                                    <p className={pathname === `${process.env.PUBLIC_URL}/problem` ? 'isActive' : ""}>Problem Users</p>
+                                    <img src={knowledgeBaseLogo} alt='' /> 
+                                    <p className={pathname === `${process.env.PUBLIC_URL}/examManagment` ? 'isActive' : ""}>Exam Managment</p>
                                     <img src={arrowAsside}/>
                                 </li>
                             </NavLink>
@@ -80,17 +63,7 @@ const Asside = (props) => {
                                     <img src={arrowAsside}/>
                                 </li>
                             </NavLink>
-                            <NavLink to={{
-                                pathname: `${process.env.PUBLIC_URL}/knowledge`  
-                            }}
-                                >
-                                <li>
-                                    <img src={knowledgeBaseLogo} alt='' /> 
-                                    <p className={pathname === `${process.env.PUBLIC_URL}/knowledge` ? 'isActive' : ""}>Knowledge Base</p>
-                                    <img src={arrowAsside}/>
-                                </li>
-                            </NavLink>
-                            <NavLink to={{
+                            {/* <NavLink to={{
                                 pathname: `${process.env.PUBLIC_URL}/communication`  
                             }}
                                 >
@@ -99,17 +72,7 @@ const Asside = (props) => {
                                     <p className={pathname === `${process.env.PUBLIC_URL}/communication` ? 'isActive' : ""}>Communication</p>
                                     <img src={arrowAsside}/>
                                 </li>
-                            </NavLink>
-                            <NavLink to={{
-                                pathname: `${process.env.PUBLIC_URL}/organization` 
-                            }}
-                                >
-                                <li>
-                                    <img src={organizationLogo} alt='' /> 
-                                    <p className={pathname === `${process.env.PUBLIC_URL}/organization` ? 'isActive' : ""}>Organization</p>
-                                    <img src={arrowAsside}/>
-                                </li>
-                            </NavLink>
+                            </NavLink> */}
                             </div>
                             {/* <div className="Asside-Wrapper-Flex-Navlink2">   
                                 <NavLink to={{
