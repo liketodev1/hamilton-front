@@ -9,7 +9,7 @@ import resultLogo from "../../assets/resultLogo.png"
 import knowledgeBaseLogo from "../../assets/knowledgeBaseLogo.png" 
 import communicationLogo from "../../assets/communicationLogo.png"
 import organizationLogo from "../../assets/organizationLogo.png"
-
+import exams from "../../assets/exams.png"
 import './Asside.scss'
  
 
@@ -31,6 +31,16 @@ const Asside = (props) => {
                                 <li>
                                     <img src={dashboardLogo} alt='' /> 
                                     <p className={pathname === `${process.env.PUBLIC_URL}/dashboard` ? 'isActive' : ""}>Dashboard</p>
+                                </li>
+                            </NavLink>
+                            <NavLink to={{
+                                pathname: `${process.env.PUBLIC_URL}/exams`  
+                            }}
+                                >
+                                <li>
+                                    <img src={questionBanklogo} alt='' /> 
+                                    <p className={pathname === `${process.env.PUBLIC_URL}/exams` ? 'isActive' : ""}>Exams</p>
+                                    <img src={arrowAsside}/>
                                 </li>
                             </NavLink>
                             {/* <NavLink to={{
@@ -63,6 +73,7 @@ const Asside = (props) => {
                                     <img src={arrowAsside}/>
                                 </li>
                             </NavLink>
+     
                             {/* <NavLink to={{
                                 pathname: `${process.env.PUBLIC_URL}/communication`  
                             }}

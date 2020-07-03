@@ -1,0 +1,101 @@
+.ExamAndImg{
+    display: flex;
+    align-items: center;
+    max-width: 220px;
+    min-height: 80px;
+    width: 100%;
+    background-color: #fff;
+    color: #091f40;
+    border-radius: 6px;
+    justify-content: center;
+    padding: 0 100px;
+    cursor: pointer;
+    margin: 20px;
+}
+.Exams{
+    background-color: #091f40;
+    min-height: 100vh;
+}
+.Hide{
+    visibility: hidden;
+    max-width: 100px;
+    width: 100%;
+    min-height: 40px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    padding: 12px 0;
+    background-color: #3eae4d;
+    outline: none;
+    border: 1px solid #3eae4d;
+    cursor: pointer;
+    color: #fff
+
+}
+.ExamAndImg:hover .Hide {
+    visibility: visible;
+    position: absolute;
+
+}
+.Flex{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.ExamText{
+    margin-left: 10px;
+}
+.SearchAndButton{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.SearchInput{
+    height: 40px;
+    width: 350px;
+    outline: none;
+    padding: 0 20px;
+    border-radius: 6px;
+    border: 1px solid #63686f;
+    margin-right: 10px;
+}
+.SearchButton{
+    width: 120px;
+    height: 40px;
+    border-radius: 6px;
+    border: 1px solid #4786ff;
+    background-color: #4786ff;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+}
+.Cont{
+    padding: 50px 100px;
+}
+.TitleAndSearch {
+    padding: 20px 90px;
+}
+.Title{
+    font-size: 36px;
+    font-weight: 600;
+    color: #fff;  
+    font-family: 'Times New Roman', Regular;
+}
+.Pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+h4{
+    color: #fff;
+    margin: 20px;
+    cursor: pointer;
+}
+h4:hover{
+    background-color: #3773ff;
+    width: 20px;
+    border-radius: 5px;
+    padding: 0 6px;
+}

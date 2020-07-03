@@ -53,27 +53,45 @@ const KnowledgeBase = () => {
             if(res.status === 200){
                 
             }
-            console.log(res)    
 
     }
 
     const updateName = async (el) => {
-        const formData = new FormData();
-        formData.append('title', form.title);
-
-        console.log(form.title)
-
-            let updateExam = await fetch (`http://freelancedeveloper.site/projects/laravel/hamilton/public/api/admin/exam/update/${el.id}`, {
-                method:"PUT",
+        setIsUpdateExamOpen(true)
+        // const formData = new FormData();
+        // formData.append('title', form.title);
+            let updateExam = await fetch (`http://freelancedeveloper.site/projects/laravel/hamilton/public/api/admin/exam/delete/${el.id}`, {
+                method:"Delete",
+                headers:{
+                    Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiNjU2NmMwZDBlZmRlNDZmYmZlYzk4ZDk5MDEwMjVkODAxYzFiNzgyYWVmYWNlYzY2NTVmM2EzODZkYzc1YTAyNzI4ODkwYTA0YTFiY2MyZTIiLCJpYXQiOjE1OTI5MDQyMzMsIm5iZiI6MTU5MjkwNDIzMywiZXhwIjoxNjI0NDQwMjMzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.d888ilWsI2pG8dKmhO6O4DSUVSP1IbzYE9kefniTdRxElB3Er2Xz-AgdNUacJscoVCH4MC4VLO8ri-5aN4OCCb0c_95NIb_msx17QqRITyHQCWiVD1O6SuLUVubUR1WJFt_LjjCd9u2DDn7-szrh7Vc7Zx3wsR-cDCXl5tv7C2JUh_lXoqfyPfjwdNkwQxYdOaK9POIZEcr2ZdWtMG29AL2KGBbPChNDIT4Xj7xgSqsxlYyMSBsiWYvFO6Igj5Xf_Sce1KMFtjQu-008ZHUllTCb_HVirp6181oyOEKlJRMb1JjDji2pUBpj1wzfX7cZp3O-6NuQDoUO-unupvH1bF_fAiHN8dvPentuu5TkeRJ3YrHfisLjt0npYBDkIgLtC9uiO-pjkkH5HHnt20DHwcwm9uWQtCfw0W6C5pENjvOmnV9CAZwJHa4m0nno2-7yvqGL8-QvRpBY_4QWuNc6tPljChbB2bGw_HeQ_Jsd1F2Gg0CmECJkcXJaEKShE_AK40Y0YmQE-A3b_oMNLvoiyKyIujA_psD7gUDNndzHdsJYzhrIgBRLT4U4mC03ZUt1oV5BTSps_SmAGkXnmtyQONfm8Vym-f-44_SE7IDVuktGM4Hi09GV5nt__KioKgCq-DNMx7fTLseZc5-NXvCaobcO_vnMM_k0VgKVhX4iUtg"
+                    
+                },
+                // body: formData       
+            })
+            let res = await updateExam.json();
+            
+            // if(res.status === 200){
+            //     const newData = [...dataExam.data].filter(item => item.id !== el.id);
+            //     setDataExam({
+            //         // ...dataExam,
+            //         data: newData,
+            //     })
+            // }
+            if(res.status === 502){
+                const formData = new FormData();
+            formData.append('title', form.title);
+            let addExam = await fetch ("http://freelancedeveloper.site/projects/laravel/hamilton/public/api/admin/exam/store", {
+                method:"POST",
                 headers:{
                     Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiNjU2NmMwZDBlZmRlNDZmYmZlYzk4ZDk5MDEwMjVkODAxYzFiNzgyYWVmYWNlYzY2NTVmM2EzODZkYzc1YTAyNzI4ODkwYTA0YTFiY2MyZTIiLCJpYXQiOjE1OTI5MDQyMzMsIm5iZiI6MTU5MjkwNDIzMywiZXhwIjoxNjI0NDQwMjMzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.d888ilWsI2pG8dKmhO6O4DSUVSP1IbzYE9kefniTdRxElB3Er2Xz-AgdNUacJscoVCH4MC4VLO8ri-5aN4OCCb0c_95NIb_msx17QqRITyHQCWiVD1O6SuLUVubUR1WJFt_LjjCd9u2DDn7-szrh7Vc7Zx3wsR-cDCXl5tv7C2JUh_lXoqfyPfjwdNkwQxYdOaK9POIZEcr2ZdWtMG29AL2KGBbPChNDIT4Xj7xgSqsxlYyMSBsiWYvFO6Igj5Xf_Sce1KMFtjQu-008ZHUllTCb_HVirp6181oyOEKlJRMb1JjDji2pUBpj1wzfX7cZp3O-6NuQDoUO-unupvH1bF_fAiHN8dvPentuu5TkeRJ3YrHfisLjt0npYBDkIgLtC9uiO-pjkkH5HHnt20DHwcwm9uWQtCfw0W6C5pENjvOmnV9CAZwJHa4m0nno2-7yvqGL8-QvRpBY_4QWuNc6tPljChbB2bGw_HeQ_Jsd1F2Gg0CmECJkcXJaEKShE_AK40Y0YmQE-A3b_oMNLvoiyKyIujA_psD7gUDNndzHdsJYzhrIgBRLT4U4mC03ZUt1oV5BTSps_SmAGkXnmtyQONfm8Vym-f-44_SE7IDVuktGM4Hi09GV5nt__KioKgCq-DNMx7fTLseZc5-NXvCaobcO_vnMM_k0VgKVhX4iUtg"
                 },
-                body: formData       
+                body: formData
             })
-            let res = await updateExam.json();
-            console.log(res)    
-    }
+            let res = await addExam.json()
+            setIsUpdateExamOpen(false);
+            }
 
+    }
     const deleteName = async (el) => {
             let deleteExam = await fetch (`http://freelancedeveloper.site/projects/laravel/hamilton/public/api/admin/exam/delete/${el.id}`, {
                 method:"DELETE",
@@ -91,7 +109,6 @@ const KnowledgeBase = () => {
                     data: newData,
                 })
             }
-            console.log(res)    
     }
 
     return (
@@ -105,7 +122,7 @@ const KnowledgeBase = () => {
                         <div className="KnowledgeBase-Cont-All-MainFlex-InsideFlex">
                             <img  src={createNewExam}/>
                             <p onClick={()=> setIsAddExamOpen(true)}>Create New Exam</p>
-                            {isAddExamOpen && (
+                             {isAddExamOpen && (
                                 <div className="KnowledgeBase-Cont-All-MainFlex-InsideFlex-AddExam">
                                     <div className="KnowledgeBase-Cont-All-MainFlex-InsideFlex-AddExam-MainTitle">
                                         <h2>Add Exam </h2>
@@ -126,7 +143,7 @@ const KnowledgeBase = () => {
                                         <button className="KnowledgeBase-Cont-All-MainFlex-InsideFlex-AddExam-CancelAndNext-Next" onClick={addName} >Next</button>
                                     </div>
                                 </div>
-                            )}
+                            )} 
                             {isUpdateExamOpen && (
                                 <div className="KnowledgeBase-Cont-All-MainFlex-InsideFlex-AddExam">
                                     <div className="KnowledgeBase-Cont-All-MainFlex-InsideFlex-AddExam-MainTitle">
@@ -160,15 +177,14 @@ const KnowledgeBase = () => {
                             <div className="KnowledgeBase-Cont-All-Table-Main-Name">Name</div>
                             <div className="KnowledgeBase-Cont-All-Table-Main-View">Exam Details</div>
                             <div className="KnowledgeBase-Cont-All-Table-Main-Edit"  >Edit</div>
-             
+        
                             <div className="KnowledgeBase-Cont-All-Table-Main-Delete">Delete</div>
                         </div>
                         {dataExam ? dataExam.data.map((el)=>(                     
                         <div className="KnowledgeBase-Cont-All-Table-Flex" key={`exam-${el.id}`}>
                             <div className="KnowledgeBase-Cont-All-Table-Flex-Name">{el.title}</div>
                             <div className="KnowledgeBase-Cont-All-Table-Flex-View" onClick = {() => history.replace(`${process.env.PUBLIC_URL}/sectionManagment`)}>View</div>
-                            <div className="KnowledgeBase-Cont-All-Table-Flex-Edit"><img src={sectionEdit} onClick={()=> setIsUpdateExamOpen(true)} /></div>
-
+                            <div className="KnowledgeBase-Cont-All-Table-Flex-Edit"><img src={sectionEdit} onClick={() => updateName(el)} /></div>
                             <div className="KnowledgeBase-Cont-All-Table-Flex-Delete"><img onClick={() => deleteName(el)}src={deleteq}/></div>
                         </div>
                         )) : null}

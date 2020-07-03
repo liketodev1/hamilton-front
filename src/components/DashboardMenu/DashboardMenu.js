@@ -8,8 +8,7 @@ const DashboardMenu = () => {
         <section className="DashboardMenu">
             <div className="DashboardMenu-Cont">
                 <div className="DashboardMenu-Cont-CardSOfTitle">
-                    {[0, 1].map(id => <CardSOfTitle key={id} id={id} />)}
-
+                    <CardSOfTitle/>
                 </div>
             </div>
             

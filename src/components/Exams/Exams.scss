@@ -1,0 +1,27 @@
+// .Exams{
+//     background-color: #091f40;
+//     &-Cont{
+//         &-ExamAndImg{
+//             display: flex;
+//             align-items: center;
+//             max-width: 220px;
+//             min-height: 80px;
+//             width: 100%;
+//             background-color: #fff;
+//             color: #091f40;
+//             border-radius: 6px;
+//             justify-content: center;
+//             cursor: pointer;
+//             &-Hide{
+//                 visibility: hidden;
+//             }
+//             &:hover.Hide{
+//                 color: red;
+//                 visibility: visible;
+//             }
+//             img{
+//                 margin-right: 10px;
+//             }
+//         }
+//     }
+// }
