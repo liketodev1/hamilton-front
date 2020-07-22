@@ -7,7 +7,7 @@ import sectionEdit from "../../assets/sectionEdit.png"
 import close from "../../assets/close.png"
 
 // import AddExam from "./AddExam"
-const KnowledgeBase = () => {
+const KnowledgeBase = ({ setActiveId}) => {
     const [isAddExamOpen, setIsAddExamOpen] = useState(false)
     const [isUpdateExamOpen, setIsUpdateExamOpen] = useState(false)
     const [dataExam, setDataExam] = useState(null)
@@ -104,6 +104,7 @@ const KnowledgeBase = () => {
 
             if(res.status === 200){
                 const newData = [...dataExam.data].filter(item => item.id !== el.id);
+                console.log(newData)
                 setDataExam({
                     // ...dataExam,
                     data: newData,
@@ -183,7 +184,10 @@ const KnowledgeBase = () => {
                         {dataExam ? dataExam.data.map((el)=>(                     
                         <div className="KnowledgeBase-Cont-All-Table-Flex" key={`exam-${el.id}`}>
                             <div className="KnowledgeBase-Cont-All-Table-Flex-Name">{el.title}</div>
-                            <div className="KnowledgeBase-Cont-All-Table-Flex-View" onClick = {() => history.replace(`${process.env.PUBLIC_URL}/sectionManagment`)}>View</div>
+                            <div className="KnowledgeBase-Cont-All-Table-Flex-View"  onClick = {() => {
+                                setActiveId(el.id);
+                                history.replace(`${process.env.PUBLIC_URL}/sectionManagment`)
+                            }}> View </div>
                             <div className="KnowledgeBase-Cont-All-Table-Flex-Edit"><img src={sectionEdit} onClick={() => updateName(el)} /></div>
                             <div className="KnowledgeBase-Cont-All-Table-Flex-Delete"><img onClick={() => deleteName(el)}src={deleteq}/></div>
                         </div>

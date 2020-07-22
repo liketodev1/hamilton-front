@@ -6,44 +6,7 @@ import sectionEdit from "../../assets/sectionEdit.png"
 import { useHistory } from 'react-router'
 import close from "../../assets/close.png"
 
-
-const sectionData = [
-    {
-        id:1,
-        sectionName:"Writing and Language Test",
-        sectionDetails:"View",
-        sectionTime:"65 Minutes",
-        sectionEdit:sectionEdit,
-        deleteq: deleteq
-    },
-    {
-        id:2,
-        sectionName:"Reading Test",
-        sectionDetails:"View",
-        sectionTime:"45 Minutes",
-        sectionEdit:sectionEdit,
-        deleteq: deleteq
-    },
-    {
-        id:3,
-        sectionName:"Math Test With Calculator",
-        sectionDetails:"View",
-        sectionTime:"25 Minutes",
-        sectionEdit:sectionEdit,
-        deleteq: deleteq
-    },
-    {
-        id:4,
-        sectionName:"Math Test With No Calculator",
-        sectionDetails:"View",
-        sectionTime:"45 Minutes",
-        sectionEdit:sectionEdit,
-        deleteq: deleteq
-    },
-
-]
-
-const SectionManagment = () => { 
+const SectionManagment = ({ activeId }) => { 
     const history = useHistory()
     const [isAddSectionOpen, setIsAddSectionOpen] = useState(false)
     const [isAddPassage, setIsAddPassage]= useState(false)
@@ -51,6 +14,7 @@ const SectionManagment = () => {
     const [form, setForm] = useState(null)
     const [isUpdateSectionOpen, setIsUpdateSectionOpen] = useState(false)
 
+    const [isUpdateExamOpen, setIsUpdateExamOpen] = useState(false)
 
 
     const handleChange = (e) =>{
@@ -58,24 +22,33 @@ const SectionManagment = () => {
             ...form,
             [e.target.name]: e.target.value
         })
-        console.log(form)
-
+        // console.log(form)
     }
-    // useEffect(()=> {
-    //     const fetchData = async () => {
-    //         const fetchData = await fetch ("http://freelancedeveloper.site/projects/laravel/hamilton/public/api/admin/section", {
-    //             method: 'GET',
-    //             headers: {
-    //                 Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiNjU2NmMwZDBlZmRlNDZmYmZlYzk4ZDk5MDEwMjVkODAxYzFiNzgyYWVmYWNlYzY2NTVmM2EzODZkYzc1YTAyNzI4ODkwYTA0YTFiY2MyZTIiLCJpYXQiOjE1OTI5MDQyMzMsIm5iZiI6MTU5MjkwNDIzMywiZXhwIjoxNjI0NDQwMjMzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.d888ilWsI2pG8dKmhO6O4DSUVSP1IbzYE9kefniTdRxElB3Er2Xz-AgdNUacJscoVCH4MC4VLO8ri-5aN4OCCb0c_95NIb_msx17QqRITyHQCWiVD1O6SuLUVubUR1WJFt_LjjCd9u2DDn7-szrh7Vc7Zx3wsR-cDCXl5tv7C2JUh_lXoqfyPfjwdNkwQxYdOaK9POIZEcr2ZdWtMG29AL2KGBbPChNDIT4Xj7xgSqsxlYyMSBsiWYvFO6Igj5Xf_Sce1KMFtjQu-008ZHUllTCb_HVirp6181oyOEKlJRMb1JjDji2pUBpj1wzfX7cZp3O-6NuQDoUO-unupvH1bF_fAiHN8dvPentuu5TkeRJ3YrHfisLjt0npYBDkIgLtC9uiO-pjkkH5HHnt20DHwcwm9uWQtCfw0W6C5pENjvOmnV9CAZwJHa4m0nno2-7yvqGL8-QvRpBY_4QWuNc6tPljChbB2bGw_HeQ_Jsd1F2Gg0CmECJkcXJaEKShE_AK40Y0YmQE-A3b_oMNLvoiyKyIujA_psD7gUDNndzHdsJYzhrIgBRLT4U4mC03ZUt1oV5BTSps_SmAGkXnmtyQONfm8Vym-f-44_SE7IDVuktGM4Hi09GV5nt__KioKgCq-DNMx7fTLseZc5-NXvCaobcO_vnMM_k0VgKVhX4iUtg" 
-    //             }
-    //         });
-    //         const res = await fetchData.json();
-    //         setDataSection(res.data);
-    //     }
-    //     fetchData()
-    // }, []);
 
-    // console.log(dataSection)
+    const fileHandleChange = (e)=>{
+        setForm({
+            ...form,
+            reference_img: e.target.files[0],
+        })
+    }
+
+
+    useEffect(()=> {
+        const fetchData = async () => {
+            const fetchData = await fetch (`http://freelancedeveloper.site/projects/laravel/hamilton/public/api/admin/exam/${activeId}`, {
+                method: 'GET',
+                headers: {
+                    Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiNjU2NmMwZDBlZmRlNDZmYmZlYzk4ZDk5MDEwMjVkODAxYzFiNzgyYWVmYWNlYzY2NTVmM2EzODZkYzc1YTAyNzI4ODkwYTA0YTFiY2MyZTIiLCJpYXQiOjE1OTI5MDQyMzMsIm5iZiI6MTU5MjkwNDIzMywiZXhwIjoxNjI0NDQwMjMzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.d888ilWsI2pG8dKmhO6O4DSUVSP1IbzYE9kefniTdRxElB3Er2Xz-AgdNUacJscoVCH4MC4VLO8ri-5aN4OCCb0c_95NIb_msx17QqRITyHQCWiVD1O6SuLUVubUR1WJFt_LjjCd9u2DDn7-szrh7Vc7Zx3wsR-cDCXl5tv7C2JUh_lXoqfyPfjwdNkwQxYdOaK9POIZEcr2ZdWtMG29AL2KGBbPChNDIT4Xj7xgSqsxlYyMSBsiWYvFO6Igj5Xf_Sce1KMFtjQu-008ZHUllTCb_HVirp6181oyOEKlJRMb1JjDji2pUBpj1wzfX7cZp3O-6NuQDoUO-unupvH1bF_fAiHN8dvPentuu5TkeRJ3YrHfisLjt0npYBDkIgLtC9uiO-pjkkH5HHnt20DHwcwm9uWQtCfw0W6C5pENjvOmnV9CAZwJHa4m0nno2-7yvqGL8-QvRpBY_4QWuNc6tPljChbB2bGw_HeQ_Jsd1F2Gg0CmECJkcXJaEKShE_AK40Y0YmQE-A3b_oMNLvoiyKyIujA_psD7gUDNndzHdsJYzhrIgBRLT4U4mC03ZUt1oV5BTSps_SmAGkXnmtyQONfm8Vym-f-44_SE7IDVuktGM4Hi09GV5nt__KioKgCq-DNMx7fTLseZc5-NXvCaobcO_vnMM_k0VgKVhX4iUtg" 
+                }
+            });
+            const res = await fetchData.json();
+            setDataSection(res.data);
+
+        }
+        fetchData()
+    }, []);
+
+    console.log(dataSection)
 
 
     const addName = async (el) => {
@@ -85,36 +58,64 @@ const SectionManagment = () => {
         formData.append('time', form.time)
         formData.append('info', form.info)
         formData.append('note', form.note)
-        formData.append('directions_1', form.directions_1)
-        formData.append('directions_2', form.directions_2)
+        formData.append('directions[1][text]', form.direction_1)
+        formData.append('directions[2][text]', form.direction_2)
+        formData.append("reference_img", form.reference_img)
+        formData.append("exam_id", activeId)
 
-            let addExam = await fetch ("http://freelancedeveloper.site/projects/laravel/hamilton/public/api/admin/exam/store", {
+            let addSection = await fetch ("http://freelancedeveloper.site/projects/laravel/hamilton/public/api/admin/section/store", {
                 method:"POST",
                 headers:{
-                    Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiNjU2NmMwZDBlZmRlNDZmYmZlYzk4ZDk5MDEwMjVkODAxYzFiNzgyYWVmYWNlYzY2NTVmM2EzODZkYzc1YTAyNzI4ODkwYTA0YTFiY2MyZTIiLCJpYXQiOjE1OTI5MDQyMzMsIm5iZiI6MTU5MjkwNDIzMywiZXhwIjoxNjI0NDQwMjMzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.d888ilWsI2pG8dKmhO6O4DSUVSP1IbzYE9kefniTdRxElB3Er2Xz-AgdNUacJscoVCH4MC4VLO8ri-5aN4OCCb0c_95NIb_msx17QqRITyHQCWiVD1O6SuLUVubUR1WJFt_LjjCd9u2DDn7-szrh7Vc7Zx3wsR-cDCXl5tv7C2JUh_lXoqfyPfjwdNkwQxYdOaK9POIZEcr2ZdWtMG29AL2KGBbPChNDIT4Xj7xgSqsxlYyMSBsiWYvFO6Igj5Xf_Sce1KMFtjQu-008ZHUllTCb_HVirp6181oyOEKlJRMb1JjDji2pUBpj1wzfX7cZp3O-6NuQDoUO-unupvH1bF_fAiHN8dvPentuu5TkeRJ3YrHfisLjt0npYBDkIgLtC9uiO-pjkkH5HHnt20DHwcwm9uWQtCfw0W6C5pENjvOmnV9CAZwJHa4m0nno2-7yvqGL8-QvRpBY_4QWuNc6tPljChbB2bGw_HeQ_Jsd1F2Gg0CmECJkcXJaEKShE_AK40Y0YmQE-A3b_oMNLvoiyKyIujA_psD7gUDNndzHdsJYzhrIgBRLT4U4mC03ZUt1oV5BTSps_SmAGkXnmtyQONfm8Vym-f-44_SE7IDVuktGM4Hi09GV5nt__KioKgCq-DNMx7fTLseZc5-NXvCaobcO_vnMM_k0VgKVhX4iUtg"
+                    Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiNjU2NmMwZDBlZmRlNDZmYmZlYzk4ZDk5MDEwMjVkODAxYzFiNzgyYWVmYWNlYzY2NTVmM2EzODZkYzc1YTAyNzI4ODkwYTA0YTFiY2MyZTIiLCJpYXQiOjE1OTI5MDQyMzMsIm5iZiI6MTU5MjkwNDIzMywiZXhwIjoxNjI0NDQwMjMzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.d888ilWsI2pG8dKmhO6O4DSUVSP1IbzYE9kefniTdRxElB3Er2Xz-AgdNUacJscoVCH4MC4VLO8ri-5aN4OCCb0c_95NIb_msx17QqRITyHQCWiVD1O6SuLUVubUR1WJFt_LjjCd9u2DDn7-szrh7Vc7Zx3wsR-cDCXl5tv7C2JUh_lXoqfyPfjwdNkwQxYdOaK9POIZEcr2ZdWtMG29AL2KGBbPChNDIT4Xj7xgSqsxlYyMSBsiWYvFO6Igj5Xf_Sce1KMFtjQu-008ZHUllTCb_HVirp6181oyOEKlJRMb1JjDji2pUBpj1wzfX7cZp3O-6NuQDoUO-unupvH1bF_fAiHN8dvPentuu5TkeRJ3YrHfisLjt0npYBDkIgLtC9uiO-pjkkH5HHnt20DHwcwm9uWQtCfw0W6C5pENjvOmnV9CAZwJHa4m0nno2-7yvqGL8-QvRpBY_4QWuNc6tPljChbB2bGw_HeQ_Jsd1F2Gg0CmECJkcXJaEKShE_AK40Y0YmQE-A3b_oMNLvoiyKyIujA_psD7gUDNndzHdsJYzhrIgBRLT4U4mC03ZUt1oV5BTSps_SmAGkXnmtyQONfm8Vym-f-44_SE7IDVuktGM4Hi09GV5nt__KioKgCq-DNMx7fTLseZc5-NXvCaobcO_vnMM_k0VgKVhX4iUtg",
+                    Accept: "application/json"
                 },
                 body: formData
             })
-            let res = await addExam.json();
-
-
-            console.log(res)    
+            let res = await addSection.json()
     }
+
+    const deleteName = async (el) => {
+        let deleteExam = await fetch (`http://freelancedeveloper.site/projects/laravel/hamilton/public/api/admin/section/delete/${el.id}`, {
+            method:"DELETE",
+            headers:{
+                Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiNjU2NmMwZDBlZmRlNDZmYmZlYzk4ZDk5MDEwMjVkODAxYzFiNzgyYWVmYWNlYzY2NTVmM2EzODZkYzc1YTAyNzI4ODkwYTA0YTFiY2MyZTIiLCJpYXQiOjE1OTI5MDQyMzMsIm5iZiI6MTU5MjkwNDIzMywiZXhwIjoxNjI0NDQwMjMzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.d888ilWsI2pG8dKmhO6O4DSUVSP1IbzYE9kefniTdRxElB3Er2Xz-AgdNUacJscoVCH4MC4VLO8ri-5aN4OCCb0c_95NIb_msx17QqRITyHQCWiVD1O6SuLUVubUR1WJFt_LjjCd9u2DDn7-szrh7Vc7Zx3wsR-cDCXl5tv7C2JUh_lXoqfyPfjwdNkwQxYdOaK9POIZEcr2ZdWtMG29AL2KGBbPChNDIT4Xj7xgSqsxlYyMSBsiWYvFO6Igj5Xf_Sce1KMFtjQu-008ZHUllTCb_HVirp6181oyOEKlJRMb1JjDji2pUBpj1wzfX7cZp3O-6NuQDoUO-unupvH1bF_fAiHN8dvPentuu5TkeRJ3YrHfisLjt0npYBDkIgLtC9uiO-pjkkH5HHnt20DHwcwm9uWQtCfw0W6C5pENjvOmnV9CAZwJHa4m0nno2-7yvqGL8-QvRpBY_4QWuNc6tPljChbB2bGw_HeQ_Jsd1F2Gg0CmECJkcXJaEKShE_AK40Y0YmQE-A3b_oMNLvoiyKyIujA_psD7gUDNndzHdsJYzhrIgBRLT4U4mC03ZUt1oV5BTSps_SmAGkXnmtyQONfm8Vym-f-44_SE7IDVuktGM4Hi09GV5nt__KioKgCq-DNMx7fTLseZc5-NXvCaobcO_vnMM_k0VgKVhX4iUtg"
+            },                
+        })
+        let res = await deleteExam.json();
+        console.log(res)
+        // if(res.status === 200){
+        //     const newData = [...dataSection.sections].filter(item => item.id !== el.id);
+        //     setDataSection({
+        //         // ...dataExam,
+        //         data: newData,
+        //     })
+        // }
+        if(res.status === 200 ) {
+            const newData = [...dataSection.sections].filter(item => item.id !== el.id)
+            setDataSection({
+                ...dataSection,
+                data:newData
+            })
+        }
+        
+}
+
     const updateName = async (el) => {
         setIsUpdateSectionOpen(false)
         const formData = new FormData();
         formData.append('title', form.title);
-            let updateExam = await fetch (`http://freelancedeveloper.site/projects/laravel/hamilton/public/api/admin/exam/update/${el.id}`, {
-                // mode:"no-cors",
+        formData.append("time", form.time)
+        formData.append('directions', form.directions)
+            let updateExam = await fetch (`http://freelancedeveloper.site/projects/laravel/hamilton/public/api/admin/section/${el.id}`, {
                 method:"PUT",
                 headers:{
-                    Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiNjU2NmMwZDBlZmRlNDZmYmZlYzk4ZDk5MDEwMjVkODAxYzFiNzgyYWVmYWNlYzY2NTVmM2EzODZkYzc1YTAyNzI4ODkwYTA0YTFiY2MyZTIiLCJpYXQiOjE1OTI5MDQyMzMsIm5iZiI6MTU5MjkwNDIzMywiZXhwIjoxNjI0NDQwMjMzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.d888ilWsI2pG8dKmhO6O4DSUVSP1IbzYE9kefniTdRxElB3Er2Xz-AgdNUacJscoVCH4MC4VLO8ri-5aN4OCCb0c_95NIb_msx17QqRITyHQCWiVD1O6SuLUVubUR1WJFt_LjjCd9u2DDn7-szrh7Vc7Zx3wsR-cDCXl5tv7C2JUh_lXoqfyPfjwdNkwQxYdOaK9POIZEcr2ZdWtMG29AL2KGBbPChNDIT4Xj7xgSqsxlYyMSBsiWYvFO6Igj5Xf_Sce1KMFtjQu-008ZHUllTCb_HVirp6181oyOEKlJRMb1JjDji2pUBpj1wzfX7cZp3O-6NuQDoUO-unupvH1bF_fAiHN8dvPentuu5TkeRJ3YrHfisLjt0npYBDkIgLtC9uiO-pjkkH5HHnt20DHwcwm9uWQtCfw0W6C5pENjvOmnV9CAZwJHa4m0nno2-7yvqGL8-QvRpBY_4QWuNc6tPljChbB2bGw_HeQ_Jsd1F2Gg0CmECJkcXJaEKShE_AK40Y0YmQE-A3b_oMNLvoiyKyIujA_psD7gUDNndzHdsJYzhrIgBRLT4U4mC03ZUt1oV5BTSps_SmAGkXnmtyQONfm8Vym-f-44_SE7IDVuktGM4Hi09GV5nt__KioKgCq-DNMx7fTLseZc5-NXvCaobcO_vnMM_k0VgKVhX4iUtg"
-                    
+                    Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiNjU2NmMwZDBlZmRlNDZmYmZlYzk4ZDk5MDEwMjVkODAxYzFiNzgyYWVmYWNlYzY2NTVmM2EzODZkYzc1YTAyNzI4ODkwYTA0YTFiY2MyZTIiLCJpYXQiOjE1OTI5MDQyMzMsIm5iZiI6MTU5MjkwNDIzMywiZXhwIjoxNjI0NDQwMjMzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.d888ilWsI2pG8dKmhO6O4DSUVSP1IbzYE9kefniTdRxElB3Er2Xz-AgdNUacJscoVCH4MC4VLO8ri-5aN4OCCb0c_95NIb_msx17QqRITyHQCWiVD1O6SuLUVubUR1WJFt_LjjCd9u2DDn7-szrh7Vc7Zx3wsR-cDCXl5tv7C2JUh_lXoqfyPfjwdNkwQxYdOaK9POIZEcr2ZdWtMG29AL2KGBbPChNDIT4Xj7xgSqsxlYyMSBsiWYvFO6Igj5Xf_Sce1KMFtjQu-008ZHUllTCb_HVirp6181oyOEKlJRMb1JjDji2pUBpj1wzfX7cZp3O-6NuQDoUO-unupvH1bF_fAiHN8dvPentuu5TkeRJ3YrHfisLjt0npYBDkIgLtC9uiO-pjkkH5HHnt20DHwcwm9uWQtCfw0W6C5pENjvOmnV9CAZwJHa4m0nno2-7yvqGL8-QvRpBY_4QWuNc6tPljChbB2bGw_HeQ_Jsd1F2Gg0CmECJkcXJaEKShE_AK40Y0YmQE-A3b_oMNLvoiyKyIujA_psD7gUDNndzHdsJYzhrIgBRLT4U4mC03ZUt1oV5BTSps_SmAGkXnmtyQONfm8Vym-f-44_SE7IDVuktGM4Hi09GV5nt__KioKgCq-DNMx7fTLseZc5-NXvCaobcO_vnMM_k0VgKVhX4iUtg",
+                    Accept:'application/json',
                 },
                 body: formData       
             })
             let res = await updateExam.json();
-            console.log(res)    
+            console.log(res)
     }
 
 
@@ -152,7 +153,7 @@ const SectionManagment = () => {
                                                     <h1>Time:</h1>
                                                     <input 
                                                         placeholder="Enter time"
-                                                        type="text"
+                                                        type="number"
                                                         id= "time"
                                                         name="time"
                                                         onChange={handleChange}
@@ -179,27 +180,29 @@ const SectionManagment = () => {
                                             </div>
                                             <div className="SectionManagment-Cont-All-MainFlex-InsideFlex-isAddSectionOpenMain-MainDiv-InsideDiv-UploadAndButton">
                                                 <h1>Upload Image:</h1>
-                                                <button>Browse Files:</button>
-                                                {/* <input type="file" id="reference_img" name="reference_img" />  */}
+                                                {/* <button>Browse Files:</button> */}
+                                                <input className="SectionManagment-Cont-All-MainFlex-InsideFlex-isAddSectionOpenMain-MainDiv-InsideDiv-UploadAndButton-Input" type="file" id="reference_img" name="reference_img" onChange={fileHandleChange}/> 
                                             </div>
                                             <div  >
                                                 <div className="SectionManagment-Cont-All-MainFlex-InsideFlex-isAddSectionOpenMain-MainDiv-InsideDiv-InfoAndInput">
                                                     <h1>Directions 1:</h1>
                                                     <textarea               
                                                         type="text"
-                                                        id= "directions_1"
-                                                        name="directions_1"
+                                                        id= "direction_1"
+                                                        name="direction_1"
                                                         onChange={handleChange}>
                                                     </textarea>
+                                                    {/* <input type="file" id="reference_img" name="reference_img" onChange={handleChange}/>  */}
                                                 </div>
                                                 <div className="SectionManagment-Cont-All-MainFlex-InsideFlex-isAddSectionOpenMain-MainDiv-InsideDiv-InfoAndInput">
                                                     <h1>Directions 2:</h1>
                                                     <textarea               
                                                         type="text"
-                                                        id= "directions_2"
-                                                        name="directions_2"
+                                                        id= "direction_2"
+                                                        name="direction_2"
                                                         onChange={handleChange}>
                                                     </textarea>
+                                                    {/* <input type="file" id="reference_img" name="reference_img" onChange={handleChange}/>  */}
                                                 </div>                                        
                                             </div>
                                             <div className="SectionManagment-Cont-All-MainFlex-InsideFlex-isAddSectionOpenMain-MainDiv-InsideDiv-CancelAndNext">
@@ -217,18 +220,41 @@ const SectionManagment = () => {
                         {isUpdateSectionOpen && (
                                 <div className="KnowledgeBase-Cont-All-MainFlex-InsideFlex-AddExam">
                                     <div className="KnowledgeBase-Cont-All-MainFlex-InsideFlex-AddExam-MainTitle">
-                                        <h2>Edit Exam </h2>
+                                        <h2>Edit Section </h2>
                                         <img onClick={()=> setIsUpdateSectionOpen(false)} src={close}/>
                                     </div>
-                                    <div className="KnowledgeBase-Cont-All-MainFlex-InsideFlex-AddExam-MainDiv">
-                                        <h1>Exam Name:</h1>
-                                        <input  
-                                            placeholder="Title"
-                                            type="text"
-                                            id= "title"
-                                            name="title"
-                                            onChange={handleChange}
-                                        />
+                                    <div >
+                                        <div className="KnowledgeBase-Cont-All-MainFlex-InsideFlex-AddExam-MainDiv">
+                                            <h1>Name:</h1>
+                                            <input  
+                                                placeholder="Title"
+                                                type="text"
+                                                id= "title"
+                                                name="title"
+                                                onChange={handleChange}
+                                            />
+                                        </div>
+                                        <div className="KnowledgeBase-Cont-All-MainFlex-InsideFlex-AddExam-MainDiv">
+                                            <h1>Time:</h1>
+                                            <input  
+                                                placeholder="Title"
+                                                type="text"
+                                                id= "time"
+                                                name="time"
+                                                onChange={handleChange}
+                                            />
+                                        </div>
+                                        <div className="KnowledgeBase-Cont-All-MainFlex-InsideFlex-AddExam-MainDiv">
+                                            <h1>Directiion:</h1>
+                                            <input  
+                                                placeholder="Title"
+                                                type="text"
+                                                id= "directions"
+                                                name="directions"
+                                                onChange={handleChange}
+                                            />
+                                        </div>
+                                        
                                     </div>
                                     <div className="KnowledgeBase-Cont-All-MainFlex-InsideFlex-AddExam-CancelAndNext"> 
                                         <button className="KnowledgeBase-Cont-All-MainFlex-InsideFlex-AddExam-CancelAndNext-Cancel" onClick={()=> setIsUpdateSectionOpen(false)}>Cancel</button>
@@ -246,15 +272,16 @@ const SectionManagment = () => {
                             <div className="SectionManagment-Cont-Table-Main-Edit">Edit</div>
                             <div className="SectionManagment-Cont-Table-Main-Delete">Delete</div>
                         </div>
-                        {sectionData.map((el)=>(
-                        <div  className="SectionManagment-Cont-Table-Flex">
-                            <div className="SectionManagment-Cont-Table-Flex-Name">{el.sectionName}</div>
-                            <div className="SectionManagment-Cont-Table-Flex-View" onClick = {() => history.replace(`${process.env.PUBLIC_URL}/questionManagment`)}>{el.sectionDetails}</div>
-                            <div className="SectionManagment-Cont-Table-Flex-Time">{el.sectionTime}</div>
+                        {dataSection ? dataSection.sections.map((el)=>(
+                        <div className="SectionManagment-Cont-Table-Flex">
+                            <div className="SectionManagment-Cont-Table-Flex-Name">{el.title}</div>
+                            <div className="SectionManagment-Cont-Table-Flex-View" onClick = {() => history.replace(`${process.env.PUBLIC_URL}/questionManagment`)}>Views</div>
+                            <div className="SectionManagment-Cont-Table-Flex-Time">{el.time}</div>
                             <div className="SectionManagment-Cont-Table-Flex-Edit"><img src={sectionEdit} onClick={()=> setIsUpdateSectionOpen(true)} /></div>
-                            <div className="SectionManagment-Cont-Table-Flex-Delete"><img src={deleteq}/></div>
+                            <div className="SectionManagment-Cont-Table-Flex-Delete"><img src={deleteq} onClick={() => deleteName(el)}/></div> 
                         </div>
-                        ))}
+                         )) : null}
+
                     </div>
                 </div>
             </div>

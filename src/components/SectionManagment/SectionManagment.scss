@@ -103,6 +103,16 @@
                 background-color: #ffffff;
                 position: absolute;
                 left: 430px;
+
+                input{
+                  height: 40px;
+                  width: 350px;
+                  outline: none;
+                  padding: 0 20px;
+                  border-radius: 6px;
+                  border: 1px solid #63686f;
+                  margin-right: 10px;
+                }
          
 
                 &-InsideDiv{
@@ -145,6 +155,14 @@
                     display: flex;
                     align-items: center;
                     margin-bottom: 20px;
+                    Input {
+                      border: none;
+                      outline: none;
+                      color: #254a81;
+                      font-size: 14px;
+                      font-family: 'Times New Roman', Regular;
+                      margin-top: 17px;
+                    }
 
                     button {
                       max-width: 130px;
