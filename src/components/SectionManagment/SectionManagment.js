@@ -6,7 +6,7 @@ import sectionEdit from "../../assets/sectionEdit.png"
 import { useHistory } from 'react-router'
 import close from "../../assets/close.png"
 
-const SectionManagment = ({ activeId }) => { 
+const SectionManagment = ({ activeId, setActiveSection }) => { 
     const history = useHistory()
     const [isAddSectionOpen, setIsAddSectionOpen] = useState(false)
     const [isAddPassage, setIsAddPassage]= useState(false)
@@ -75,29 +75,15 @@ const SectionManagment = ({ activeId }) => {
     }
 
     const deleteName = async (el) => {
-        let deleteExam = await fetch (`http://freelancedeveloper.site/projects/laravel/hamilton/public/api/admin/section/delete/${el.id}`, {
+        let deleteSection = await fetch (`http://freelancedeveloper.site/projects/laravel/hamilton/public/api/admin/section/delete/${el.id}`, {
             method:"DELETE",
             headers:{
                 Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiNjU2NmMwZDBlZmRlNDZmYmZlYzk4ZDk5MDEwMjVkODAxYzFiNzgyYWVmYWNlYzY2NTVmM2EzODZkYzc1YTAyNzI4ODkwYTA0YTFiY2MyZTIiLCJpYXQiOjE1OTI5MDQyMzMsIm5iZiI6MTU5MjkwNDIzMywiZXhwIjoxNjI0NDQwMjMzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.d888ilWsI2pG8dKmhO6O4DSUVSP1IbzYE9kefniTdRxElB3Er2Xz-AgdNUacJscoVCH4MC4VLO8ri-5aN4OCCb0c_95NIb_msx17QqRITyHQCWiVD1O6SuLUVubUR1WJFt_LjjCd9u2DDn7-szrh7Vc7Zx3wsR-cDCXl5tv7C2JUh_lXoqfyPfjwdNkwQxYdOaK9POIZEcr2ZdWtMG29AL2KGBbPChNDIT4Xj7xgSqsxlYyMSBsiWYvFO6Igj5Xf_Sce1KMFtjQu-008ZHUllTCb_HVirp6181oyOEKlJRMb1JjDji2pUBpj1wzfX7cZp3O-6NuQDoUO-unupvH1bF_fAiHN8dvPentuu5TkeRJ3YrHfisLjt0npYBDkIgLtC9uiO-pjkkH5HHnt20DHwcwm9uWQtCfw0W6C5pENjvOmnV9CAZwJHa4m0nno2-7yvqGL8-QvRpBY_4QWuNc6tPljChbB2bGw_HeQ_Jsd1F2Gg0CmECJkcXJaEKShE_AK40Y0YmQE-A3b_oMNLvoiyKyIujA_psD7gUDNndzHdsJYzhrIgBRLT4U4mC03ZUt1oV5BTSps_SmAGkXnmtyQONfm8Vym-f-44_SE7IDVuktGM4Hi09GV5nt__KioKgCq-DNMx7fTLseZc5-NXvCaobcO_vnMM_k0VgKVhX4iUtg"
             },                
         })
-        let res = await deleteExam.json();
-        console.log(res)
-        // if(res.status === 200){
-        //     const newData = [...dataSection.sections].filter(item => item.id !== el.id);
-        //     setDataSection({
-        //         // ...dataExam,
-        //         data: newData,
-        //     })
-        // }
-        if(res.status === 200 ) {
-            const newData = [...dataSection.sections].filter(item => item.id !== el.id)
-            setDataSection({
-                ...dataSection,
-                data:newData
-            })
-        }
-        
+        let res = await deleteSection.json();
+
+       
 }
 
     const updateName = async (el) => {
@@ -273,9 +259,12 @@ const SectionManagment = ({ activeId }) => {
                             <div className="SectionManagment-Cont-Table-Main-Delete">Delete</div>
                         </div>
                         {dataSection ? dataSection.sections.map((el)=>(
-                        <div className="SectionManagment-Cont-Table-Flex">
+                        <div className="SectionManagment-Cont-Table-Flex" >
                             <div className="SectionManagment-Cont-Table-Flex-Name">{el.title}</div>
-                            <div className="SectionManagment-Cont-Table-Flex-View" onClick = {() => history.replace(`${process.env.PUBLIC_URL}/questionManagment`)}>Views</div>
+                            <div className="SectionManagment-Cont-Table-Flex-View" onClick = {() => {
+                                setActiveSection(el.id)
+                                history.replace(`${process.env.PUBLIC_URL}/passageManagment`);
+                            }}>Views</div>   
                             <div className="SectionManagment-Cont-Table-Flex-Time">{el.time}</div>
                             <div className="SectionManagment-Cont-Table-Flex-Edit"><img src={sectionEdit} onClick={()=> setIsUpdateSectionOpen(true)} /></div>
                             <div className="SectionManagment-Cont-Table-Flex-Delete"><img src={deleteq} onClick={() => deleteName(el)}/></div> 

@@ -13,13 +13,13 @@ import SignIn from '../SignIn';
 import SignUp from '../SignUp/SignUp';
 import SectionManagment from "../SectionManagment"
 import HomePage from "../Homepage"
-import QuestionManagment from '../QuestionManagment/QuestionManagment';
+import PassageManagment from "../PassageManagment";
 import Exams from "../Exams"
 
 const Dashboard = () => {
 
     const [activeId, setActiveId] = useState(null);
-
+    const [activeSection, setActiveSection] = useState(null)
     return (
         <section className="Dashboard">
             <div className="Dashboard-Main">
@@ -33,8 +33,8 @@ const Dashboard = () => {
                 <Route path={`${process.env.PUBLIC_URL}/exams`}  component={Exams} />
                 <Route path={`${process.env.PUBLIC_URL}/communication`}  component={Communication} />
                 <Route path={`${process.env.PUBLIC_URL}/examManagment`}  component={() => <Knowledge setActiveId ={setActiveId}/>} />
-                <Route path={`${process.env.PUBLIC_URL}/sectionManagment`}  component={() => <SectionManagment activeId={activeId}/>} />
-                {/* <Route path={`${process.env.PUBLIC_URL}/questionManagment`}  component={QuestionManag ment} /> */}
+                <Route path={`${process.env.PUBLIC_URL}/sectionManagment`}  component={() => <SectionManagment activeId={activeId} setActiveSection={setActiveSection} />}  />
+                <Route path={`${process.env.PUBLIC_URL}/passageManagment`}  component={ () => <PassageManagment activeSection = {activeSection}/>} />
                 <Route path={`${process.env.PUBLIC_URL}/homePage`}  component={HomePage} />
 
 

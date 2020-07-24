@@ -57,6 +57,7 @@ const KnowledgeBase = ({ setActiveId}) => {
     }
 
     const updateName = async (el) => {
+        console.log(el.id)
         setIsUpdateExamOpen(true)
         // const formData = new FormData();
         // formData.append('title', form.title);
@@ -103,6 +104,7 @@ const KnowledgeBase = ({ setActiveId}) => {
 
 
             if(res.status === 200){
+                console.log(dataExam.data)
                 const newData = [...dataExam.data].filter(item => item.id !== el.id);
                 console.log(newData)
                 setDataExam({
