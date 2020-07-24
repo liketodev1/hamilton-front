@@ -170,13 +170,13 @@ const SectionManagment = ({ activeSection }) => {
                         </div>
 
                         {isUpdateSectionOpen && (
-                                <div className="PassageManagement-Cont-All-MainFlex-InsideFlex-AddExam">
-                                    <div className="PassageManagement-Cont-All-MainFlex-InsideFlex-AddExam-MainTitle">
+                                <div className="KnowledgeBase-Cont-All-MainFlex-InsideFlex-AddExam">
+                                    <div className="KnowledgeBase-Cont-All-MainFlex-InsideFlex-AddExam-MainTitle">
                                         <h2>Edit Section </h2>
                                         <img onClick={()=> setIsUpdateSectionOpen(false)} src={close}/>
                                     </div>
                                     <div >
-                                        <div className="PassageManagement-Cont-All-MainFlex-InsideFlex-AddExam-MainDiv">
+                                        <div className="KnowledgeBase-Cont-All-MainFlex-InsideFlex-AddExam-MainDiv">
                                             <h1>Title:</h1>
                                             <input  
                                                 placeholder="Title"
@@ -186,7 +186,7 @@ const SectionManagment = ({ activeSection }) => {
                                                 onChange={handleChange}
                                             />
                                         </div>
-                                        <div className="PassageManagement-Cont-All-MainFlex-InsideFlex-AddExam-MainDiv">
+                                        <div className="KnowledgeBase-Cont-All-MainFlex-InsideFlex-AddExam-MainDiv">
                                             <h1>Passage:</h1>
                                             <input  
                                                 placeholder="Passage"
@@ -202,8 +202,8 @@ const SectionManagment = ({ activeSection }) => {
                                                 <input className="PassageManagement-Cont-All-MainFlex-InsideFlex-isAddSectionOpenMain-MainDiv-InsideDiv-UploadAndButton-Input" type="file" id="img_url" name="img_url" onChange={fileHandleChange}/> 
                                             </div>
                                         
-                                    </div>
-                                    <div className="PassageManagement-Cont-All-MainFlex-InsideFlex-AddExam-CancelAndNext"> 
+                                    </div>      
+                                    <div className="KnowledgeBase-Cont-All-MainFlex-InsideFlex-AddExam-CancelAndNext"> 
                                         <button className="KnowledgeBase-Cont-All-MainFlex-InsideFlex-AddExam-CancelAndNext-Cancel" onClick={()=> setIsUpdateSectionOpen(false)}>Cancel</button>
                                         <button className="KnowledgeBase-Cont-All-MainFlex-InsideFlex-AddExam-CancelAndNext-Next" onClick={updateName} >Next</button>
                                     </div>

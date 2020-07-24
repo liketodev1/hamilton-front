@@ -151,13 +151,18 @@
                       display: flex;
                       align-items: center;
                       margin-bottom: 20px;
+                      padding: 40px 250px;
+                      color: #091f40;
+                      font-size: 16px;
+                      font-family: 'Times New Roman', "Regular";
+                      margin-right: 20px;
+
                       Input {
                         border: none;
                         outline: none;
                         color: #254a81;
                         font-size: 14px;
                         font-family: 'Times New Roman', Regular;
-                        margin-top: 17px;
                       }
   
                       button {
